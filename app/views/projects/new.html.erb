@@ -1,0 +1,41 @@
+.<h2>Add a Project</h2>
+
+<%= form_for @project do |f| %>
+<% if @project.errors.any? %>
+<div style="color:red">
+	<h3>These error prohibitted the form from saving:</h3>
+	<ul>
+		<% @project.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<%= f.label :name %><br/>
+<%= f.text_field :name %><br/>
+
+<%= f.label :description %><br/>
+<%= f.text_area :description %><br/>
+
+<%= f.label :start_date %><br/>
+<%= f.date_select :start_date, order: [:day,:month,:year] %><br/>
+
+<%= f.label :client_id %><br/>
+<%= f.collection_select :client_id, current_user.clients, :id, :company, prompt: "Select Client" %><br/>
+
+<!-- drop downs -->
+<%# f.label :status %><br/>
+<%# f.select :status, ["name", "on-going", "completed"], prompt: "Select Status" %>
+
+<%= f.label :status %><br/>
+<%= f.radio_button :status, "new" %> New <br/>
+<%= f.radio_button :status, "on-going" %> On Going <br/> 
+<%= f.radio_button :status, "completed" %> Completed <br/>
+
+<!-- Collection Checkboxes -->
+<%= f.collection_check_boxes :category_ids, Category.all, :id, :name %><br/>
+
+<%= f.submit %>
+<% end %>
+

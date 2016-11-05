@@ -1,0 +1,57 @@
+<h3><%= @client.name %></h3>
+<%= link_to "edit", edit_client_path(@client.id) %><br/><br/>
+
+<b>Total Projects:</b> <%= @project_clients.size %>
+
+<h3>Projects</h3>
+
+<ul>
+<% @project_clients.each do |project| %>
+ <li><%= link_to project.name, project_path(project.id) %>
+ 	<h4>Tasks</h4>
+ 	<ol>
+ 			<% project.tasks.each do |task| %>
+ 			<li><%= task.title %></li>
+ 			<% end %>
+ 			</ol>
+
+
+ </li>
+ <% end %>
+</ul>
+
+<h2> New Projects </h2>
+<ul>
+	<% @client.projects.where('status = ?', "new").each do |project| %>
+	<li><%= link_to project.name,project_path(project.id) %>
+		<% end %>
+	</ul>
+
+
+
+<!--
+<# status_new = @project_clients.where('status = ?', "new") %>
+<ul>
+<# status_new.each do |project| %>
+<li><# project.name %></li>
+<# end %>
+</ul>
+-->
+<h2> On Going </h2>
+<% status_ongoing = @project_clients.where('status = ?', "on-going") %>
+<ul>
+<% status_ongoing.each do |project| %>
+<li><%= project.name %></li>
+<% end %>
+</ul>
+
+<h2> Completed </h2>
+<% status_completed = @project_clients.where('status = ?', "completed") %>
+<ul>
+<% status_completed.each do |project| %>
+<li><%= project.name %></li>
+<% end %>
+</ul>
+
+
+

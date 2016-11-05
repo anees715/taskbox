@@ -1,0 +1,27 @@
+ModelName.all
+ returns all the rows from the table, converted to an array of object
+
+In Rails Console ->
+ clients = Client.all
+ #here clients is an array of client variable
+
+ puts "There are totally #{clients.size}client"
+
+ clients.each do |client|
+   puts client.name
+  end
+
+
+ ModelName.find(id)
+  Finds the record whose id matches id, returns an object if the record is found else a record not found exception is raised
+
+  ModelName.where('column_name = ?')
+
+  projects = Projects.where('client_id = ?', 14)
+  where method is gonna perform a query on the table based on a condition, where the conditions are column name its value.
+
+  projects = Project.where('client_id = ? AND status = ?', 14, "new")
+
+  #Limit - Limits the record in a given number
+  Project.order('start_date DESC').limit(20)
+

@@ -1,0 +1,108 @@
+A SAAS Lead Generation App for Local Businesses
+
+Type : B2B
+Targeting : All  local businesses like Super Markets, Fashion Outlets, Hotels, Restaurants, Beauty Shops & Parlours, Cafes and all other local services.
+
+The idea : To help local business to find new customers and make existing customers coming back.
+
+Features :
+ 1. Retain customers visiting the store through personalized offers and discounts.
+ 2. Convert existing customers to referers by providing points, gifts, discounts and referal achievements.
+ 3. Find new potential customers who are referred by existing customers and through social media campaigns.
+ 4. Collect user reviews and convert it into Business/Product recommendation to drive new sales.
+ 5. Provide personalized offers & product recommendations.
+
+ Classes
+
+ 1.Business Owner
+  - Name
+  - Email
+  - Company Name
+  - Business Type
+  - Address
+  - Location
+  - Average Sales P/M
+  - Phone Number
+  - Plan
+
+ 2.Customer
+  - Name
+  - Email
+  - Address
+  - Phone No
+  - Date of Birth
+  - Source id
+  - Referral Code
+  - Achievements
+  - Custom Offer id
+  - Social Media Status id
+  - Total Savings
+  - Total Savings Made to Others
+  - Belongs to Business id
+  - Visiting Frequency
+
+ 3.Business Type
+  - Category
+
+ 4.Source
+  - Source Name
+
+ 5.Plan
+  - Name
+  - Price
+
+ 6.Referral
+   - User id
+   - Referral Code
+   - No of Referrals Made
+
+ 7.Custom Offer
+   - User id
+   - Title
+   - Description
+   - Start Date
+   - End Date
+   - Total Customers Availed this Offer
+
+ 8.Customers Social Media Status
+   - User id
+   - Facebook Page Like
+   - Twitter Follower
+
+ 9.Customers Achievements
+   - Rank Names
+
+ 10.Personalization
+   - Customer id
+   - Most Shopping Categories
+   - Favorite Color
+   - Favorite Product
+   - Prefered Shopping Time
+   - Prefered Shopping Day
+   - Shops For
+
+ 11.Milestones
+   - Milestone Type id
+   - Gift/Discount
+   - Achievement Provided
+
+ 12.Milestone Type
+   - Refer Friends
+   - Shop for an Amount
+   - Buy a Particular Product
+
+ 13.Review
+   - User id
+   - Tagline
+   - Review
+   - Review Date
+
+14.Leads
+  - Business Owner id
+  - No of New Customers
+  - Net Gross
+  - No of Referrals
+  - Offers Claimed
+  - Total no of Sales
+  - Total Investment Made
+

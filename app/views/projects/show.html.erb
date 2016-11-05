@@ -1,0 +1,59 @@
+<h3><%= @project.name %></h3>
+<b>Client : </b><%= link_to @project.client.try(:name), client_path(@project.client_id) %>
+
+
+<h3>Categories</h3>
+<ul>
+<% @project.categories.each do |category| %>
+ <li><%= category.name %></li>
+ <% end %>
+</ul>
+
+<h3>Projects</h3>
+<ul>
+	<% @project.tasks.each do |task| %>
+	<li><%= task.title %> - <%= task.due_date %> - <%= task.is_completed %></li>
+	<% end %>
+</ul>
+
+<h2>Listing Tasks</h2>
+<h3>Incomplete</h2>
+	<ul>
+	<% @project.incompleted_tasks.each do |project| %>
+	<li><%= project.title %></li>
+	<% end %>
+	</ul>
+
+<h3>Completed</h3>
+	<ul>
+	<% @project.completed_tasks.each do |project| %>
+	<li><%= project.title %></li>
+	<% end %>
+</ul>
+
+
+
+
+<%= form_for @task do |f| %>
+
+<%= f.label :title %><br/>
+<%= f.text_field :title %><br/>
+
+<%= f.hidden_field :project_id, value: @project.id %>
+
+<%= f.label :due_date %><br>
+<%= f.date_select :due_date %><br/>
+
+<%= f.label :is_completed %><br/>
+<%=f.check_box :is_completed %><br/>
+
+<%= f.submit %>
+
+<% end %>
+
+
+<%= link_to "edit", edit_project_path(@project.id) %>
+
+<%= link_to "Destroy", project_path(@project.id), method: :delete, data: {confirm: "Are you sure?"} %>
+
+<%= link_to "back", projects_path %>
